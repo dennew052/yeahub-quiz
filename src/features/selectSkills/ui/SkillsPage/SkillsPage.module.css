@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex: 2;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.right {
+    flex: 1;
+    padding: 20px;
+}
+
+.skillsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
