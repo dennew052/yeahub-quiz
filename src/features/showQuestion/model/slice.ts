@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { questionsApi } from '@shared/api/questionsApi'; // подключи свой API
+import { questionsApi } from '@shared/api/questionsApi';
 
 interface Question {
   id: number;

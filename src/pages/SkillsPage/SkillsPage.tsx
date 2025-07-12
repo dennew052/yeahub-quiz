@@ -2,7 +2,7 @@ import type { RootState } from '@/store';
 import { toggleSkill } from '@features/quizSettings/model/slice/quizSettingsSlice';
 import type { Skill } from '@features/selectSkills/model/types';
 import styles from '@pages/SkillsPage/SkillsPage.module.css';
-import QuizSettings from '@features/showQuestion/ui/QuizSettings';
+import QuizSettings from '@features/quizSettings/ui/QuizSettings';
 import { useGetSpecializationsQuery } from '@shared/api/skillsApi';
 import SkillButton from '@shared/components/SkillButton/SkillButton';
 import { useDispatch, useSelector } from 'react-redux';

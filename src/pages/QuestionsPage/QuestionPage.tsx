@@ -1,11 +1,10 @@
 import type { RootState } from '@/store';
+import { answerQuestion } from '@features/showQuestion/model/slice';
+import ResultsPage from '@pages/ResultsPage';
 import { useGetQuestionsQuery } from '@shared/api/questionsApi';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import { answerQuestion } from '@features/showQuestion/model/slice';
-import ResultsPage from '@pages/ResultsPage';
 
 export function QuestionPage() {
   const dispatch = useDispatch();

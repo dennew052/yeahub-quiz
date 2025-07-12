@@ -1,9 +1,9 @@
-import { QuestionLimitInput } from '@/shared/ui/QuestionLimitInput/QuestionLimitInput';
 import type { RootState } from '@/store';
 import {
   setLimit,
   toggleComplexity,
 } from '@features/quizSettings/model/slice/quizSettingsSlice';
+import { QuestionLimitInput } from '@shared/ui/QuestionLimitInput/QuestionLimitInput';
 import type { CSSProperties } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
