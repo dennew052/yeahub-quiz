@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { answerQuestion } from '@features/showQuestion/model/slice';
-import Results from '@features/showQuestion/ui/Results';
+import ResultsPage from '@pages/ResultsPage';
 
 export function QuestionPage() {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export function QuestionPage() {
   }
 
   if (currentIndex >= questions.length) {
-    return <Results questions={questions} answers={answers} />;
+    return <ResultsPage questions={questions} answers={answers} />;
   }
 
   const currentQuestion = questions[currentIndex];
