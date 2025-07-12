@@ -1,3 +1,3 @@
-import { QuestionPage } from '@features/showQuestion/ui/QuestionPage';
+import { QuestionPage } from '@pages/QuestionsPage/QuestionPage';
 
 export default QuestionPage;

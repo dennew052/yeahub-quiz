@@ -1,3 +1,3 @@
-import SkillsPage from '@features/selectSkills/ui/SkillsPage';
+import SkillsPage from '@pages/SkillsPage/SkillsPage';
 
 export default SkillsPage;

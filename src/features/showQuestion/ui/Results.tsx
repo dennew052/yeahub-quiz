@@ -10,7 +10,7 @@ interface Props {
   answers: Record<number, 'know' | 'dontKnow' | null>;
 }
 
-export default function ResultsPage({ questions, answers }: Props) {
+export default function Results({ questions, answers }: Props) {
   const known = questions.filter((q) => answers[q.id] === 'know');
   const unknown = questions.filter((q) => answers[q.id] === 'dontKnow');
 
