@@ -1,11 +1,11 @@
 import { setQuizSettings } from '@entities/quiz/model/quizSettingsSlice';
-import { SelectComplexity } from '@features/quiz/selectComplexity';
-import { SetQuestionCount } from '@features/quiz/setQuestionCount/ui/SetQuestionCount';
+import { SetQuestionCount } from '@features/quiz/SetQuestionCount/ui/SetQuestionCount';
 import { SelectSkill } from '@features/skill/selectSkill';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { SelectComplexity } from "@features/quiz/SelectComplexity";
 
 const StartPage = () => {
   const dispatch = useDispatch();

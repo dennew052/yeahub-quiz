@@ -1,11 +1,8 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { AnswerButtons } from '@features/quiz/AnswerButtons';
+import { BackButton } from '@features/quiz/BackButton';
+import { SkipButton } from '@features/quiz/SkipButton';
+import { ToggleAnswerButton } from '@features/quiz/ToggleAnswerButton';
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
 
 import type { QuestionCardProps } from '../model/types';
 
@@ -31,9 +28,10 @@ export function QuestionCard({
             {question.description}
           </Typography>
 
-          <Button variant="outlined" onClick={onToggleAnswer} sx={{ my: 2 }}>
-            {showAnswer ? 'Скрыть ответ' : 'Показать ответ'}
-          </Button>
+          <ToggleAnswerButton
+            showAnswer={showAnswer}
+            onToggle={onToggleAnswer}
+          />
 
           {showAnswer && (
             <Box
@@ -47,43 +45,11 @@ export function QuestionCard({
             />
           )}
 
-          <Stack direction="row" spacing={2} mt={4} justifyContent="center">
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => onAnswer('KNOW')}
-              sx={{
-                backgroundColor:
-                  currentAnswer === 'KNOW' ? 'success.main' : undefined,
-                opacity: currentAnswer && currentAnswer !== 'KNOW' ? 0.5 : 1,
-              }}
-            >
-              Знаю
-            </Button>
-
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => onAnswer('UNKNOWN')}
-              sx={{
-                backgroundColor:
-                  currentAnswer === 'UNKNOWN' ? 'error.main' : undefined,
-                opacity: currentAnswer && currentAnswer !== 'UNKNOWN' ? 0.5 : 1,
-              }}
-            >
-              Не знаю
-            </Button>
-          </Stack>
+          <AnswerButtons currentAnswer={currentAnswer} onAnswer={onAnswer} />
 
           <Stack direction="row" justifyContent="space-between" mt={4}>
-            <Button onClick={onBack} disabled={currentIndex === 0}>
-              Назад
-            </Button>
-            {!isLast && (
-              <Button onClick={onSkip} variant="text">
-                Пропустить
-              </Button>
-            )}
+            <BackButton onBack={onBack} disabled={currentIndex === 0} />
+            {!isLast && <SkipButton onSkip={onSkip} />}
           </Stack>
         </CardContent>
       </Card>
