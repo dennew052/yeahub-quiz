@@ -1,6 +1,8 @@
 import type { RootState } from '@app/store';
-import { useGetQuestionsQuery } from '@entities/quiz/model/questionsApi';
-import { QuestionFlow } from '@features/answerQuestion/ui/QuestionFlow';
+import { IntermediateQuestionsResult } from '@entities/quiz';
+import { useGetQuestionsQuery } from '@entities/quiz/api/questionsApi';
+import { QuestionFlow } from '@widgets/QuestionFlow/ui/QuestionFlow';
+import { ProgressBar } from '@shared/ui/ProgressBar';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,35 +38,11 @@ const QuizPage = () => {
 
   return (
     <div style={{ padding: 24 }}>
-      <div style={{ marginBottom: 16 }}>
-        <div>
-          {currentIndex + 1} / {total}
-        </div>
-        <div
-          style={{
-            height: 8,
-            background: '#eee',
-            borderRadius: 4,
-            overflow: 'hidden',
-            marginTop: 4,
-          }}
-        >
-          <div
-            style={{
-              width: `${((currentIndex + 1) / total) * 100}%`,
-              background: '#7c3aed',
-              height: '100%',
-            }}
-          />
-        </div>
-      </div>
+      <ProgressBar currentIndex={currentIndex} total={total} title={'Вопрос'} />
 
       <QuestionFlow questions={data.questions} onFinish={handleFinish} />
 
-      <div style={{ marginTop: 16, fontSize: 14, color: '#888' }}>
-        Знаю: {selectedAnswers.filter((a) => a.answer === 'know').length} | Не
-        знаю: {selectedAnswers.filter((a) => a.answer === 'dont_know').length}
-      </div>
+      <IntermediateQuestionsResult selectedAnswers={selectedAnswers} />
     </div>
   );
 };

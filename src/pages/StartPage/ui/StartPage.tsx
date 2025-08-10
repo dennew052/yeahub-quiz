@@ -1,7 +1,7 @@
 import { setQuizSettings } from '@entities/quiz/model/quizSettingsSlice';
-import { SelectComplexity } from '@features/selectComplexity/ui/SelectComplexity';
-import { SelectSkill } from '@features/selectSkill/ui/SelectSkill';
-import { SetQuestionCount } from '@features/setQuestionCount/ui/SetQuestionCount';
+import { SelectComplexity } from '@features/quiz/selectComplexity';
+import { SetQuestionCount } from '@features/quiz/setQuestionCount/ui/SetQuestionCount';
+import { SelectSkill } from '@features/skill/selectSkill';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -27,6 +27,7 @@ const StartPage = () => {
       <Box sx={{ width: '66.66%', py: 2 }}>
         <Paper elevation={3} sx={{ height: '100%', p: 2, borderRadius: 3 }}>
           <Typography variant="h5">Собеседование</Typography>
+          <Typography sx={{ mt: 2, mb: 1 }}>Специализация</Typography>
 
           <SelectSkill
             selectedId={quizSettingsLocal.specialization}
@@ -39,12 +40,18 @@ const StartPage = () => {
 
       <Box sx={{ width: '33.33%', p: 2 }}>
         <Paper elevation={3} sx={{ height: '100%', p: 2, borderRadius: 3 }}>
+          <Typography variant="subtitle1" sx={{ mt: 1 }}>
+            Сложность вопросов
+          </Typography>
           <SelectComplexity
             selected={quizSettingsLocal.complexity}
             onChange={(complexity) =>
               setQuizSettingsLocal((prev) => ({ ...prev, complexity }))
             }
           />
+          <Typography variant="subtitle1" sx={{ mt: 3 }}>
+            Количество вопросов
+          </Typography>
           <SetQuestionCount
             value={quizSettingsLocal.questionsCount}
             onChange={(questionsCount) =>

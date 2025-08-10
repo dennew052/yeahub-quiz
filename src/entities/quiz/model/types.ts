@@ -5,12 +5,11 @@ export type Question = {
   longAnswer: string;
 };
 
-export type Answer = 'know' | 'dont_know';
+export type Answer = 'KNOW' | 'UNKNOWN';
 
 export type QuestionCardProps = {
   question: Question;
   currentIndex: number;
-  total: number;
   currentAnswer?: Answer;
   showAnswer: boolean;
   onToggleAnswer: () => void;

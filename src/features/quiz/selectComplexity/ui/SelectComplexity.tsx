@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip } from '@mui/material';
 
 const complexityRanges = {
   '1–3': [1, 2, 3],
@@ -26,9 +26,6 @@ export const SelectComplexity = ({ selected, onChange }: Props) => {
 
   return (
     <>
-      <Typography variant="subtitle1" sx={{ mt: 1 }}>
-        Сложность вопросов
-      </Typography>
       <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 1 }}>
         {(
           Object.keys(complexityRanges) as Array<keyof typeof complexityRanges>

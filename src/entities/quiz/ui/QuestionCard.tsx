@@ -3,17 +3,15 @@ import {
   Button,
   Card,
   CardContent,
-  LinearProgress,
   Stack,
   Typography,
 } from '@mui/material';
 
-import type { QuestionCardProps } from '../types';
+import type { QuestionCardProps } from '../model/types';
 
 export function QuestionCard({
   question,
   currentIndex,
-  total,
   currentAnswer,
   showAnswer,
   onToggleAnswer,
@@ -22,15 +20,8 @@ export function QuestionCard({
   onSkip,
   isLast,
 }: QuestionCardProps) {
-  const progress = Math.round(((currentIndex + 1) / total) * 100);
-
   return (
     <Box maxWidth="md" mx="auto" mt={4} px={2}>
-      <Typography variant="h6" gutterBottom>
-        Вопрос {currentIndex + 1} / {total}
-      </Typography>
-      <LinearProgress variant="determinate" value={progress} sx={{ mb: 2 }} />
-
       <Card elevation={3}>
         <CardContent>
           <Typography variant="h5" gutterBottom>
@@ -60,11 +51,11 @@ export function QuestionCard({
             <Button
               variant="contained"
               color="success"
-              onClick={() => onAnswer('know')}
+              onClick={() => onAnswer('KNOW')}
               sx={{
                 backgroundColor:
-                  currentAnswer === 'know' ? 'success.main' : undefined,
-                opacity: currentAnswer && currentAnswer !== 'know' ? 0.5 : 1,
+                  currentAnswer === 'KNOW' ? 'success.main' : undefined,
+                opacity: currentAnswer && currentAnswer !== 'KNOW' ? 0.5 : 1,
               }}
             >
               Знаю
@@ -73,12 +64,11 @@ export function QuestionCard({
             <Button
               variant="contained"
               color="error"
-              onClick={() => onAnswer('dont_know')}
+              onClick={() => onAnswer('UNKNOWN')}
               sx={{
                 backgroundColor:
-                  currentAnswer === 'dont_know' ? 'error.main' : undefined,
-                opacity:
-                  currentAnswer && currentAnswer !== 'dont_know' ? 0.5 : 1,
+                  currentAnswer === 'UNKNOWN' ? 'error.main' : undefined,
+                opacity: currentAnswer && currentAnswer !== 'UNKNOWN' ? 0.5 : 1,
               }}
             >
               Не знаю

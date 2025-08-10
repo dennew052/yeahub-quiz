@@ -1,14 +1,18 @@
 import type { RootState } from '@app/store';
+import { QuestionCard } from '@entities/quiz';
 import {
   answerQuestion,
   nextQuestion,
   previousQuestion,
 } from '@entities/quiz/model/quizSlice';
-import { QuestionCard } from '@entities/quiz/ui/QuestionCard';
+import type { Answer, Question } from '@entities/quiz/model/types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import type { Answer, QuestionFlowProps, SelectedAnswer } from '../types';
+type QuestionFlowProps = {
+  questions: Question[];
+  onFinish: () => void;
+};
 
 export const QuestionFlow = ({ questions, onFinish }: QuestionFlowProps) => {
   const dispatch = useDispatch();
@@ -19,7 +23,7 @@ export const QuestionFlow = ({ questions, onFinish }: QuestionFlowProps) => {
   );
 
   const selectedAnswers = useSelector(
-    (state: RootState) => state.quiz.selectedAnswers as SelectedAnswer[]
+    (state: RootState) => state.quiz.selectedAnswers
   );
 
   const total = questions.length;
@@ -28,7 +32,7 @@ export const QuestionFlow = ({ questions, onFinish }: QuestionFlowProps) => {
 
   const currentAnswer = selectedAnswers.find(
     (a) => a.questionId === question.id
-  )?.answer as Answer | undefined;
+  )?.answer;
 
   const handleAnswer = (answer: Answer) => {
     dispatch(answerQuestion({ questionId: question.id, answer }));
@@ -60,7 +64,6 @@ export const QuestionFlow = ({ questions, onFinish }: QuestionFlowProps) => {
     <QuestionCard
       question={question}
       currentIndex={currentIndex}
-      total={total}
       currentAnswer={currentAnswer}
       showAnswer={showAnswer}
       onToggleAnswer={handleToggleAnswer}

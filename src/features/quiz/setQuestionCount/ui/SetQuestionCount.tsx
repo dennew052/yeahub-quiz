@@ -1,4 +1,5 @@
-import { Box, InputBase, Typography } from '@mui/material';
+import { Box, InputBase } from '@mui/material';
+import type { ChangeEvent } from 'react';
 
 type Props = {
   value: number;
@@ -14,17 +15,13 @@ export const SetQuestionCount = ({ value, onChange }: Props) => {
     onChange(Math.min(100, value + 1));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const num = Math.max(1, Math.min(100, Number(e.target.value)));
     onChange(num);
   };
 
   return (
     <>
-      <Typography variant="subtitle1" sx={{ mt: 3 }}>
-        Количество вопросов
-      </Typography>
-
       <Box
         sx={{
           display: 'flex',

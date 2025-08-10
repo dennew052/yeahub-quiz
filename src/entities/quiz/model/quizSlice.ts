@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-type UserAnswer = {
+export type UserAnswer = {
   questionId: number;
-  answer: 'know' | 'dont_know';
+  answer: 'KNOW' | 'UNKNOWN';
 };
 
 type QuizState = {

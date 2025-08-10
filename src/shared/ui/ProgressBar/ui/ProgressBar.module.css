@@ -1,0 +1,16 @@
+.bar {
+    margin-bottom: 16px;
+}
+
+.bar_line {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.bar_line__fulfilled {
+    background: #7c3aed;
+    height: 10px;
+}

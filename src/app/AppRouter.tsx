@@ -1,7 +1,7 @@
-import ResultsPage from '@/src/pages/ResultsPage';
 import MainLayout from '@app/layouts/MainLayout';
-import QuizPage from '@pages/QuizPage/QuizPage';
-import StartPage from '@pages/StartPage/StartPage';
+import { QuizPage } from '@pages/QuizPage';
+import { ResultsPage } from '@pages/ResultPage';
+import { StartPage } from '@pages/StartPage';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 const router = createBrowserRouter([

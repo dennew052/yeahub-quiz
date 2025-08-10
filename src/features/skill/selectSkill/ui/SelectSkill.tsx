@@ -1,4 +1,4 @@
-import { useGetSkillsQuery } from '@entities/skill/model/skillsApi';
+import { useGetSkillsQuery } from '@entities/skill/api/skillsApi';
 import { Box, Chip, CircularProgress, Typography } from '@mui/material';
 
 type SelectSkillProps = {
@@ -20,7 +20,6 @@ export const SelectSkill = ({ selectedId, onSelect }: SelectSkillProps) => {
 
   return (
     <>
-      <Typography sx={{ mt: 2, mb: 1 }}>Специализация</Typography>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
         {specializations.map((item) => (
           <Chip
