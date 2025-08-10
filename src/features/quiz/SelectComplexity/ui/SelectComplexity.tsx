@@ -5,7 +5,7 @@ const complexityRanges = {
   '4–6': [4, 5, 6],
   '7–8': [7, 8],
   '9–10': [9, 10],
-} as const;
+};
 
 type Props = {
   selected: number[];

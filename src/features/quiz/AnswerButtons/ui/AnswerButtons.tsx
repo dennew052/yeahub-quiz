@@ -1,10 +1,5 @@
+import type { AnswerButtonsProps } from '@entities/quiz/model/types';
 import { Button, Stack } from '@mui/material';
-import type { Answer } from "@entities/quiz/model/types";
-
-type AnswerButtonsProps = {
-  currentAnswer?: Answer;
-  onAnswer: (answer: Answer) => void;
-};
 
 export const AnswerButtons = ({
   currentAnswer,

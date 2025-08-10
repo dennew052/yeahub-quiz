@@ -1,7 +1,3 @@
-import { AnswerButtons } from '@features/quiz/AnswerButtons';
-import { BackButton } from '@features/quiz/BackButton';
-import { SkipButton } from '@features/quiz/SkipButton';
-import { ToggleAnswerButton } from '@features/quiz/ToggleAnswerButton';
 import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
 
 import type { QuestionCardProps } from '../model/types';
@@ -16,6 +12,10 @@ export function QuestionCard({
   onBack,
   onSkip,
   isLast,
+  ToggleAnswerButton,
+  AnswerButtons,
+  BackButton,
+  SkipButton,
 }: QuestionCardProps) {
   return (
     <Box maxWidth="md" mx="auto" mt={4} px={2}>

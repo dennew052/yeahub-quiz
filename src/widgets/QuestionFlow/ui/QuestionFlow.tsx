@@ -6,6 +6,10 @@ import {
   previousQuestion,
 } from '@entities/quiz/model/quizSlice';
 import type { Answer, Question } from '@entities/quiz/model/types';
+import { AnswerButtons } from '@features/quiz/AnswerButtons';
+import { BackButton } from '@features/quiz/BackButton';
+import { SkipButton } from '@features/quiz/SkipButton';
+import { ToggleAnswerButton } from '@features/quiz/ToggleAnswerButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -72,6 +76,10 @@ export const QuestionFlow = ({ questions, onFinish }: QuestionFlowProps) => {
       onSkip={handleSkip}
       isLast={isLast}
       onFinish={onFinish}
+      ToggleAnswerButton={ToggleAnswerButton}
+      AnswerButtons={AnswerButtons}
+      BackButton={BackButton}
+      SkipButton={SkipButton}
     />
   );
 };

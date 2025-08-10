@@ -1,9 +1,5 @@
+import type { ToggleAnswerButtonProps } from '@entities/quiz/model/types';
 import { Button } from '@mui/material';
-
-interface ToggleAnswerButtonProps {
-  showAnswer: boolean;
-  onToggle: () => void;
-}
 
 export const ToggleAnswerButton = ({
   showAnswer,
